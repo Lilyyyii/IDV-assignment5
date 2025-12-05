@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Hello World! </h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -1217,88 +1228,101 @@
       }
     </script>
 
-<!-- ============ SVG 5 ============ -->
-<section id="svg5">
-  <h2>SVG 5</h2>
+    <!-- SVG 5 -->
+    <section id="svg5">
+      <h2>SVG 5</h2>
+      <div class="svg5-block">
 
-  <div class="svg5-block">
+        <h1>three-primary colours</h1>
 
-    <style>
-      /* --- SVG5 元素移动动画（自动旋转） --- */
-      #svg5 .orbit {
-        animation: orbitMove 6s linear infinite;
-        transform-origin: 450px 270px;
-      }
+        <svg id="scene" viewBox="0 0 900 520">
+          <defs>
+            <radialGradient id="bigGrad" cx="50%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#3b3320"/>
+              <stop offset="100%" stop-color="#1e1a11"/>
+            </radialGradient>
 
-      @keyframes orbitMove {
-        from { transform: rotate(0deg); }
-        to   { transform: rotate(360deg); }
-      }
-    </style>
+            <radialGradient id="redGrad" cx="30%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#ff9e9e"/>
+              <stop offset="60%" stop-color="#ff5050"/>
+              <stop offset="100%" stop-color="#d40000"/>
+            </radialGradient>
 
-    <h1>three-primary colours</h1>
+            <radialGradient id="greenGrad" cx="30%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#c5ff9e"/>
+              <stop offset="60%" stop-color="#5bd75b"/>
+              <stop offset="100%" stop-color="#0a8a0a"/>
+            </radialGradient>
 
-    <svg id="scene" viewBox="0 0 900 520">
+            <radialGradient id="blueGrad" cx="30%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#a9c9ff"/>
+              <stop offset="60%" stop-color="#4f83ff"/>
+              <stop offset="100%" stop-color="#0033cc"/>
+            </radialGradient>
+          </defs>
 
-      <defs>
-        <radialGradient id="bigGrad" cx="50%" cy="30%" r="70%">
-          <stop offset="0%" stop-color="#3b3320"/>
-          <stop offset="100%" stop-color="#1e1a11"/>
-        </radialGradient>
+          <!-- Background -->
+          <rect x="0" y="0" width="900" height="520" fill="url(#bigGrad)"/>
 
-        <radialGradient id="redGrad" cx="30%" cy="30%" r="70%">
-          <stop offset="0%" stop-color="#ff9e9e"/>
-          <stop offset="60%" stop-color="#ff5050"/>
-          <stop offset="100%" stop-color="#d40000"/>
-        </radialGradient>
+          <!-- Three main circles -->
+          <circle id="redCircle" cx="720" cy="230" r="70" fill="url(#redGrad)" stroke="#ff4d4d" stroke-width="4">
+  <animateTransform attributeName="transform"
+    type="translate"
+    dur="6s"
+    values="0 0; 10 -6; -8 4; 0 0"
+    repeatCount="indefinite"/>
+</circle>
 
-        <radialGradient id="greenGrad" cx="30%" cy="30%" r="70%">
-          <stop offset="0%" stop-color="#c5ff9e"/>
-          <stop offset="60%" stop-color="#59ff59"/>
-          <stop offset="100%" stop-color="#00b800"/>
-        </radialGradient>
+         <circle id="greenCircle" cx="230" cy="360" r="70" fill="url(#greenGrad)" stroke="#4eff6b" stroke-width="4">
+  <animateTransform attributeName="transform"
+    type="translate"
+    dur="7s"
+    values="0 0; -12 5; 6 -4; 0 0"
+    repeatCount="indefinite"/>
+</circle>
 
-        <radialGradient id="blueGrad" cx="30%" cy="30%" r="70%">
-          <stop offset="0%" stop-color="#9ec5ff"/>
-          <stop offset="60%" stop-color="#3b7dff"/>
-          <stop offset="100%" stop-color="#0037d4"/>
-        </radialGradient>
-      </defs>
+          <circle id="blueCircle" cx="230" cy="130" r="70" fill="url(#blueGrad)" stroke="#4d6eff" stroke-width="4">
+  <animateTransform attributeName="transform"
+    type="translate"
+    dur="5.5s"
+    values="0 0; 6 8; -6 -4; 0 0"
+    repeatCount="indefinite"/>
+</circle>
 
-      <circle id="bigCircle" cx="450" cy="270" r="130" fill="url(#bigGrad)" />
+          <!-- Center white highlight -->
+          <circle cx="410" cy="230" r="40" fill="white" opacity="0.9"/>
 
-      <line id="lineR" x1="450" y1="270" x2="720" y2="230"
-            stroke="#ff6e6e" stroke-width="3" stroke-dasharray="7 7"/>
-      <line id="lineG" x1="450" y1="270" x2="230" y2="360"
-            stroke="#66ff88" stroke-width="3" stroke-dasharray="7 7"/>
-      <line id="lineB" x1="450" y1="270" x2="230" y2="130"
-            stroke="#6ba0ff" stroke-width="3" stroke-dasharray="7 7"/>
+          <!-- Small sparkles / particles -->
+          <circle cx="220" cy="100" r="4" fill="#ffeb3b" opacity="0.7">
+            <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="650" cy="120" r="3" fill="#ffeb3b" opacity="0.7">
+            <animate attributeName="opacity" values="0.2;1;0.2" dur="2.4s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="700" cy="360" r="5" fill="#ffeb3b" opacity="0.7">
+            <animate attributeName="opacity" values="0.2;1;0.2" dur="3.5s" repeatCount="indefinite"/>
+          </circle>
 
-      <g class="node orbit" id="nodeR" data-r="255" data-g="0" data-b="0">
-        <circle id="redCircle" cx="720" cy="230" r="70"
-                fill="url(#redGrad)" stroke="#ff4d4d" stroke-width="4"/>
-        <circle class="handle" cx="720" cy="230" r="13"
-                fill="#fff" stroke="#c0c0c0" stroke-width="2"/>
-      </g>
+          <!-- Labels -->
+          <text x="300" y="430" font-size="22" fill="#ff8080">Red channel</text>
+          <text x="460" y="430" font-size="22" fill="#8cff8c">Green channel</text>
+          <text x="370" y="70" font-size="22" fill="#96c0ff">Blue channel</text>
+        </svg>
 
-      <g class="node orbit" id="nodeG" data-r="0" data-g="255" data-b="0">
-        <circle id="greenCircle" cx="230" cy="360" r="70"
-                fill="url(#greenGrad)" stroke="#4eff6b" stroke-width="4"/>
-        <circle class="handle" cx="230" cy="360" r="13"
-                fill="#fff" stroke="#c0c0c0" stroke-width="2"/>
-      </g>
+        <button class="btn" onclick="toggleSvg5Steps()">Click to view SVG FIVE training log</button>
 
-      <g class="node orbit" id="nodeB" data-r="0" data-g="0" data-b="255">
-        <circle id="blueCircle" cx="230" cy="130" r="70"
-                fill="url(#blueGrad)" stroke="#4d6eff" stroke-width="4"/>
-        <circle class="handle" cx="230" cy="130" r="13"
-                fill="#fff" stroke="#c0c0c0" stroke-width="2"/>
-      </g>
-
-    </svg>
-  </div>
-</section>
-
+        <div id="svg5-steps">
+          <b>SVG FIVE — How this “three-primary colours” scene was trained</b><br><br>
+          1️⃣ I first asked ChatGPT to build a dark background that feels like a stage for colours.<br>
+          2️⃣ Then I requested three large circles to represent R, G, B channels with radial gradients.<br>
+          3️⃣ I asked to place them so that they overlap and create a mixed bright center area.<br>
+          4️⃣ Small “sparkle” circles were added with opacity animation to make the scene feel alive.<br>
+          5️⃣ I refined gradient stops until the reds, greens and blues looked vivid but not too harsh.<br>
+          6️⃣ Labels were added around the scene to clearly mark each colour channel.<br>
+          7️⃣ Finally I asked for all of this to be wrapped in one SVG and kept copy-paste runnable.<br>
+        </div>
+      </div>
+    </section>
 
     <script>
       function toggleSvg5Steps(){
